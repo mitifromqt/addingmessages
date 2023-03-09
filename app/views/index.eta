@@ -1,0 +1,22 @@
+<h1>Messages</h1>
+
+<h2>Add an message</h2>
+
+<form method="POST">
+  Sender: <input type="text" name="sender" /><br/>
+  Message: <input type="text" name="message" /><br/>
+  <input type="submit" value="Submit!" />
+</form>
+
+<h2>Current messages</h2>
+
+<ul>
+<% it.texts.forEach((text) => { %>
+  <li>
+    <%= text.sender %>: <%= text.message %>
+    <form method="POST" action="/delete/<%= text.id %>">
+      <input type="submit" value="Delete" />
+    </form>
+  </li>
+<% }); %>
+</ul>
